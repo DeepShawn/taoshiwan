@@ -24,7 +24,14 @@ import json
 import os
 import sys
 import urllib.parse
-from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
+from http.server import BaseHTTPRequestHandler, HTTPServer
+try:                                     # Python 3.7+
+    from http.server import ThreadingHTTPServer
+except ImportError:                      # Python 3.6 兼容
+    import socketserver
+
+    class ThreadingHTTPServer(socketserver.ThreadingMixIn, HTTPServer):
+        daemon_threads = True
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 USCRIPT = os.path.join(os.path.dirname(ROOT), "51taoshi-auto-answer.user.js")
