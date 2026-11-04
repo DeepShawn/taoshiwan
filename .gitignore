@@ -1,0 +1,19 @@
+# 运行产物
+bank.json
+bank-export.json
+tsw-diag-*.json
+tsw-answer-bank-*.json
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# 编辑器
+.vscode/
+.idea/
+.DS_Store
+
+# 临时
+*.log

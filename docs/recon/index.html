@@ -1,0 +1,475 @@
+<html><head>
+<meta charset="utf-8">
+<title>作业网_淘师湾 - infotech.51taoshi.com </title>
+<meta name="Keywords" content="作业,作业网,作业平台,信息技术,信息技术作业,高中课改,网上作业,淘师湾作业平台,淘师网,淘师湾,51淘师,51taoshi,homework">
+<meta name="Description" content="淘师湾是面向全国中小学教师、学生和家长的，以网络互动学习和信息服务为主要业务的网络社区开放平台，包括为教师专业发展服务的网络研训平台，为中小学学生课外学习服务的学习平台，成为数字校园重要组成部分的家校信息交流平台。">
+<meta name="application-name" content="淘师湾">
+<meta name="msapplication-tooltip" content="淘师湾">
+<link rel="Bookmark" type="image/x-icon" href="https://www.51taoshi.com/favicon.ico">  
+<link rel="shortcut icon" type="image/x-icon" href="https://www.51taoshi.com/favicon.ico">
+<link type="text/css" href="../../statics/commons/css/style.css" rel="stylesheet">
+<link type="text/css" href="../../statics/commons/css/main.css" rel="stylesheet">
+<script type="text/javascript" src="../../statics/commons/js/jquery-1.12.1.min.js"></script> 
+<script type="text/javascript" src="../../statics/commons/js/layer/layer.js"></script>
+<script type="text/javascript" src="../../statics/commons/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="../../statics/commons/js/md5.js"></script>
+</head>
+<body>
+<!--top-->
+
+<div class="whiteBg">
+  <div class="container">
+    <div class=" clearfix mt15 mb15">
+      <div class=" fl"><img src="../../statics/commons/images/logo.png"></div>
+      <div class="fr"><img src="../../statics/commons/images/tel.png"></div>
+    </div>
+     </div>
+</div>
+
+    <!--nav-->
+    <div class="navBox navIndex-box">
+      <div class="container">
+      <!-- 
+        <ul class="nav navIndex">
+          <li class="active"><a href="../../hw/fore/index.do">首页</a></li>
+               
+          <li> <a href="../../hw/fore/listNews.do">通知公告</a> </li>
+          
+        </ul>-->
+      </div>
+    </div>
+    <!--nav-->
+   <!--banner--> 
+      <div class="bannerBox">
+   <ul class="bannerImg">
+    <li style="background:url(http://www.51taoshi.com/imageupload/2017090811454678.jpg) no-repeat center"><a href="https://ke.qq.com/course/236563" target="_blank"></a></li>
+    <li style="background:url(http://www.51taoshi.com/imageupload/2017090811452315.jpg) no-repeat center"><a href="https://ke.qq.com/course/225307#tuin=d17f80dc" target="_blank"></a></li>
+    <li style="background:url(http://www.51taoshi.com/imageupload/2017090511195806.jpg) no-repeat center"><a href="https://ke.qq.com/course/228331" target="_blank"></a></li>
+     
+    
+   </ul>
+   <ul class="tip">
+   </ul>
+    <div class="radioBox">
+     
+          <div class="radioBody">
+            <div class="tab-Nav">
+             <a class="active">学生/信息技术老师登录</a>
+            </div>
+            <div class="cont">
+       <div class=" mt10"> 
+      <form id="loginForm" method="POST">
+       <input type="text" name="user" id="login_username" class=" form-control" placeholder="学生/教师用户名/编号/邮箱/手机号">
+       <input type="password" id="login_password" class=" form-control"  placeholder="密码">
+       <input type="hidden" id="pwd" name="pwd">
+       <a class="btn btn-primary btn-block btn-md" onclick="login()">登&nbsp;录</a>
+       <div class="clearfix mt15">
+         <div class="fl"><a href="http://www.51taoshi.com/users/login/findpwd.action" class="text-primary">忘记密码？</a></div>
+         <div class="fr"><a href="http://www.51taoshi.com/include/register/register.html" class="text-primary">注册新用户</a></div>
+       </div>
+      </form> 
+     </div>
+            </div>
+          </div>
+       
+    </div>
+  </div>
+ 
+  <!--banner-->
+  
+<div class="whiteBg">
+   <div class="container">
+      <div class="dataBox mb30">
+         <div class="dataBody">
+           <img src="../../statics/commons/images/school.png">  
+           <div class=" hidden">
+             <div class="data"><div class="num fl">798</div> <div class="plus fl">+</div></div>
+             <div class="name">学校</div>
+           </div>         
+         </div>
+         <div class="dataLine"></div>
+         
+         <div class="dataBody">
+           <img src="../../statics/commons/images/banji.png">  
+           <div class=" hidden">
+             <div class="data"><div class="num fl">17079</div> <div class="plus fl">+</div></div>
+             <div class="name">班级</div>
+           </div>         
+         </div>
+         <div class="dataLine"></div>
+         
+         <div class="dataBody">
+           <img src="../../statics/commons/images/stu.png">  
+           <div class=" hidden">
+             <div class="data"><div class="num fl">830598</div> <div class="plus fl">+</div></div>
+             <div class="name">学生</div>
+           </div>         
+         </div>
+         <div class="dataLine"></div>
+         
+         <div class="dataBody">
+           <img src="../../statics/commons/images/zuoye.png">  
+           <div class=" hidden">
+             <div class="data"><div class="num fl">37270205</div> <div class="plus fl">+</div></div>
+             <div class="name">完成作业</div>
+           </div>         
+         </div>
+      </div>
+      <!--  
+      <div class="text-center mb30">
+         <a onclick="ifLogin('hw/stu/myHomework.do')"><img src="../../statics/commons/images/stuBtn.png"></a>
+         <a onclick="ifLogin('hw/course/mine.do')"><img src="../../statics/commons/images/tchBtn.png"></a>
+      </div>-->
+         <ul class="wailBox">
+           <li><a href="http://train.51taoshi.com/teacher/fore/index.action" target="_blank"><img src="../../statics/commons/images/train.png"></a></li>
+           <li><a href="http://school.51taoshi.com/study/index/index.action" target="_blank"><img src="../../statics/commons/images/tms.png"></a></li>
+           <li><a href="http://ziyuan.51taoshi.com/fore/zycenter/index.htm" target="_blank"><img src="../../statics/commons/images/source.png"></a></li>
+           <li style="margin-right:0px;"><a href="http://www.51taoshi.com/shop/ttl/index.action" target="_blank"><img src="../../statics/commons/images/store.png"></a></li>
+         </ul>
+     
+   </div>
+</div>
+     
+
+<meta charset="utf-8">
+
+
+
+
+  
+<div class="footer">
+  <div class="container">
+   <div class="footBox">
+    <div class="footBody" style="width:150px;">
+      <h4>关于我们</h4>
+      <ul>
+            	<li><a href="http://www.51taoshi.com/viewinformpwb.action?pid=201111281152270099&amp;tab=2" target="_blank">广告合作</a></li>
+                <li><a href="http://www.51taoshi.com/viewinformpwb.action?pid=201111281153100620&amp;tab=3" target="_blank">加入我们</a></li>
+                <li><a href="http://www.51taoshi.com/link.html" target="_blank">友情链接</a></li>
+                <li><a href="http://www.51taoshi.com/viewinformpwb.action?pid=201111281154080560&amp;tab=5" target="_blank">联系我们</a></li>
+                <li><a href="http://www.51taoshi.com/viewinformpwb.action?pid=201111281154420631&amp;tab=6" target="_blank">版权声明</a></li>
+            </ul>
+    </div>
+    <div class="footBody" style="width:280px;">
+      <h4>合作机构</h4>
+      <ul>
+				<li>湖北省教育信息化发展中心</li>
+				<li>湖北省电化教育馆</li>
+				<li>湖北省教育科学研究院</li>
+				<li>湖北省中小学教师继续教育中心</li>
+				<li>湖北省中小学校长协会</li>
+				<li>北京师范大学出版集团</li>
+				<li>基础教育信息技术服务湖北省协同创新中心</li>
+
+            </ul>
+    </div>
+    <div class="footBody">
+      <h4>友情链接</h4>
+      <ul>
+              <li><a href="http://www.hbe.gov.cn/" target="_blank"> 湖北省教育厅 </a></li>
+			  <li><a href="http://www.e21.cn/" target="_blank"> 湖北省教育信息网 </a></li>
+			  <li><a href="http://www.jiaoyan.cn/" target="_blank">湖北省教育科学研究院</a></li>
+			  <li><a href="http://www.hbea.edu.cn/" target="_blank">湖北省教育考试院</a></li>
+			  <li><a href="http://www.jb1000.com/" target="_blank">世纪金榜教学资源网</a></li>
+			  <li><a href="http://www.zxxk.com" target="_blank">学科网 </a></li>
+            </ul>
+    </div>
+    <div class="footBody" style="width:320px;margin-right:0px;">
+      <h4>联系我们</h4>
+      <div style="padding:0px 0 20px 0;"><span style="font-size:24px; color:#fff;">400-883-9005</span> <span class="headtit12">(工作日9:00-17:15)</span></div>
+      <div class="wxgz">
+            	<div class=" mr10 fl">
+                	<img src="../../statics/commons/images/wxh.jpg" width="64" height="64">
+                </div>
+                <div class=" fl">
+                	<div class="mb10">扫一扫  关注微信公众号</div>
+                    <div>微信ID：taoshiwan</div>
+                </div>
+                <div class="clearfix"></div>
+              
+            </div>
+    </div>
+   </div>
+   
+  </div>
+  <div class="footInfo">
+      增值电信业务经营许可证：鄂B2-20130066  互联网出版许可证 新出网证:(鄂)字 1号   备案/许可证编号：鄂ICP备11013743号<script src="http://s24.cnzz.com/stat.php?id=3709711&web_id=3709711&show=pic" language="JavaScript"></script>
+   </div>
+</div>
+<div id="conts" style="display:none;">
+<a href="http://tms.51taoshi.com/pc/fore/detail.do?cid=18013116065843012"><img alt="" src="wbsxb.jpg"></a>
+</div>
+
+
+</body>
+
+ <script type="text/javascript" src="../../statics/commons/js/cont.main.js"></script> 
+ <script type="text/javascript">
+	jQuery(document).ready(function(){
+		loadUser();
+		showTc();
+	});
+	var localDomain = "localhost";
+	var cookiePath = "/infotech";
+	
+	function loadUser(){
+		var userid = jQuery.cookie('uid_51taoshi');
+		//var username = jQuery.cookie('uname_51taoshi');
+		var userflag = jQuery.cookie('uloginsate_51taoshi');
+		//var userrole = jQuery.cookie('urole_51taoshi');
+		var usercall = jQuery.cookie('ucall_51taoshi');
+		
+		var username = jQuery.cookie('uname_51taoshi');
+		
+		//var userrole = jQuery.cookie('urole_51taoshi');
+		
+//		var userlimit = jQuery.cookie('ulimit_51taoshi');
+//		var usermesscount = jQuery.cookie('umesscount_51taoshi');
+//		var loginTodoCount = jQuery.cookie('utodocount_51taoshi');
+		if(userflag != 'ok'){
+			//jQuery("#showUser").html("<a href='http://www.51taoshi.com/include/login/login.html' title='登录'>登录</a><a href='http://www.51taoshi.com/include/register/register.html' title='注册'>注册</a>");
+		}else{
+			jQuery("#showUser").html("<a href='http://www.51taoshi.com/ucenter/my/userEdit.action' class='mr10'>"+usercall+"</a><a href='http://www.51taoshi.com/ucenter/my/index.action' class='mr10'>个人中心</a><a href='javascript:Redirect_logout()' title='安全退出'>[退出]</a>");
+			
+		}
+	}
+	function Redirect_logout(){ 
+	  
+	   window.location.href = "../../hw/fore/index.do?out=1";
+     }
+    
+	var redirecturl="";
+	function ifLogin(myUrl){
+		if(myUrl!=null && myUrl!=''){
+			redirecturl = '../../'+myUrl;
+		}else{
+			redirecturl = document.location.href;
+		}
+		if(needlogin())
+	    {
+			if(myUrl!=null&&myUrl!=''){
+				window.location.href = redirecturl; 
+			}
+			//return true;
+	    }else{
+	       return false;
+	    }
+	}
+	
+		
+	var indexLayer ;
+	function needlogin()
+	{	
+		var userflag = jQuery.cookie('uloginsate_51taoshi');
+		if(userflag!='ok'){
+			//$("#loginModal").show();
+			indexLayer = layer.open({
+				  type: 1,
+				  title: false,
+				  closeBtn: 0,
+				  //area: '516px',
+				  skin: 'layui-layer-nobg', //没有背景色
+				  shadeClose: false,
+				  content: $('#loginModal')
+				});  
+			//return false;   
+		}else{
+			return true;
+		}
+	}
+	function closeLogin(){
+		layer.close(indexLayer);
+	}
+	function login()
+	{  
+	  
+	   var now=new Date(); 
+	   var r = now.getSeconds();
+	   if(jQuery("#login_username").val()==null||jQuery("#login_username").val()==''){
+      	    jQuery('#login_username').focus();
+      	    layer.msg("请填写用户名",function(){});
+      	    return false;
+	   }else if(jQuery("#login_password").val().length>25){
+     	    jQuery('#login_username').focus();
+     	    layer.msg("输入的用户名超过长度",function(){});
+     	    return false;
+       }else if(jQuery("#login_password").val()==null||jQuery("#login_password").val()==''){
+		    jQuery('#login_password').focus();
+		    layer.msg("请填写密码",function(){});
+		    return false;
+       }else if(jQuery("#login_password").val().length>30){
+   	    	jQuery('#login_password').focus();
+   	    	layer.msg("输入的密码超过长度",function(){});
+   	    	return false;
+       }
+	   var index = layer.load();
+	   var tmemo =jQuery("#login_username").val();
+	   //tmemo=escape(escape(tmemo));
+	   var tmemo2=jQuery("#login_password").val();
+	   //jQuery.cookie('tmemo2',tmemo2,{path: cookiePath,domain: localDomain});
+	   tmemo2=hex_md5(tmemo2);
+	   $("#pwd").val(tmemo2);
+	   //tmemo2=escape(escape(tmemo2));
+	   jQuery.ajax({
+		   type:"POST",
+		   data:$('#loginForm').serialize(),
+		   cache:"false",
+		   async:false,
+		   url:"../../users/login/loginAjax.do",
+	       success:function(data)
+			{
+				if(data=="nouser"){
+					layer.close(index);
+					layer.msg("用户名或密码错误",function(){});
+					jQuery("#login_password").val('');
+					jQuery("#login_password").focus();
+					return true;
+				}else if(data=="pwderror"){
+					layer.close(index);
+					layer.msg("密码错误",function(){});
+		        	jQuery("#login_password").val('');
+					jQuery("#login_password").focus();
+		        	return true;
+		        }else if(data=="lockuser"){
+					layer.close(index);
+					layer.msg("用户被置为无效",function(){});
+		        	jQuery("#login_password").val('');
+					jQuery("#login_password").focus();
+		        	return true;
+		        }else if(data=='1'){
+		        	//layer.msg("登录成功");
+		        	layer.open({
+  						type: 1,
+  						title: false,
+  						closeBtn: 0,
+  						area: '500px',
+  						skin: 'layui-layer-nobg', //没有背景色
+  						shadeClose: true,
+  						content: $('#conts')
+					});
+		        	redirecturl = '../../hw/stu/myHomework.do';
+		        	setTimeout("loginsucc()",9000); 
+		        }else if(data=='2'){
+		        	layer.msg("登录成功");
+		        	redirecturl = '../../hw/course/mine.do';
+		        	setTimeout("loginsucc()",1000); 
+		        }else if(data=='terror'){
+		        	layer.close(index);
+					layer.msg("作业网暂不对无编号或非信息技术老师开放",function(){});
+		        	jQuery("#login_password").val('');
+					jQuery("#login_password").focus();
+		        	return true;
+		        }else{
+		        	layer.close(index);
+					layer.msg("作业网暂不对非信息技术老师或非学生开放",function(){});
+		        	jQuery("#login_password").val('');
+					jQuery("#login_password").focus();
+		        	return true;
+		        }
+			}
+	     }); 
+	}
+	
+	
+	function loginsucc(){
+        if(redirecturl!=null && redirecturl!=''){
+        	 window.location.href = redirecturl; 
+        }else{
+        	window.location.reload(); 
+        }    
+	}
+	
+	
+	
+	function addfavorite()
+	{
+		var url = 'http://www.51taoshi.com';
+	    var title = '淘师湾';
+	    var ua = navigator.userAgent.toLowerCase();
+	    if (ua.indexOf("360se") > -1) {
+	        alert("由于360浏览器功能限制，请按 Ctrl+D 手动收藏！");
+	    }
+	    else if (ua.indexOf("msie 8") > -1) {
+	        window.external.AddToFavoritesBar(url, title); //IE8
+	    }
+	    else if (document.all) {
+			try{
+			   window.external.addFavorite(url, title);
+			}catch(e){
+			   alert('您的浏览器不支持,请按 Ctrl+D 手动收藏!');
+			}
+	    }
+	    else if (window.sidebar) {
+	        window.sidebar.addPanel(title, url, "");
+	    }
+	    else {
+	    	alert('您的浏览器不支持,请按 Ctrl+D 手动收藏!');
+	    }
+	}
+	
+	//自动执行读取弹框状态
+	function showTc(){
+		var jf_state_51taoshi = jQuery.cookie('jf_state_51taoshi');//t:正确，tt:提醒，ttt:错误，f:不显示
+		jQuery.cookie('jf_state_51taoshi','f',{path: cookiePath, domain: localDomain});
+		//alert(jf_state_51taoshi);
+		if(jf_state_51taoshi!=null&&jf_state_51taoshi=='t'){
+			var h2 = jQuery.cookie('jf_h2_51taoshi');
+			showTs(h2);
+		}else if(jf_state_51taoshi!=null&&jf_state_51taoshi=='tt'){
+			var h2 = jQuery.cookie('jf_h2_51taoshi');
+			showT_att(h2);
+		}else if(jf_state_51taoshi!=null&&jf_state_51taoshi=='ttt'){
+			var h2 = jQuery.cookie('jf_h2_51taoshi');
+			showT_err(h2);
+		}
+	}
+	
+	//提醒
+	function showT_att(mess){
+		if(mess==null||mess==''||mess=='null'){
+			mess = '';
+		}
+		layer.msg(mess, {icon: 0});
+	}
+	
+	
+	//错误
+	function showT_err(mess){
+		if(mess==null||mess==''||mess=='null'){
+			mess = '';
+		}
+		layer.msg(mess, {icon: 2});
+	}
+	
+	function hideT_err(){
+		jQuery('#stsmall_err').hide();
+		jQuery.cookie('jf_state_51taoshi','f',{path: cookiePath,domain: localDomain});
+		jQuery.cookie('jf_state_51taoshi','f',{path: cookiePath});
+	}
+	
+	//正确
+	function showTs(h1){
+		if(h1==null||h1==''||h1=='null'){
+			h1 = '';
+		}
+		layer.msg(h1, {icon: 1});
+	}
+	
+	jQuery(function() {  
+		jQuery("#login_username").keyup(function(event){  
+          if(event.keyCode == 13){  
+            login();  
+          }  
+        });  
+    });
+	jQuery(function() {  
+		jQuery("#login_password").keyup(function(event){  
+          if(event.keyCode == 13){  
+            login();  
+          }  
+        });  
+    });
+
+</script>  
+
+</html>

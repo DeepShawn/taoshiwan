@@ -1,0 +1,11 @@
+# 本项目不依赖任何第三方包，仅使用 Python 3.6+ 标准库。
+#
+# 常用命令：
+#   python tsw_answer.py doctor
+#   python tsw_answer.py launch --browser 360
+#   python tsw_answer.py run --reuse
+#
+# 如果你之前习惯用 Selenium，本项目刻意没有采用它：
+#   1) Selenium 需要 chromedriver，而 360 浏览器没有官方驱动
+#   2) 驱动版本必须与浏览器内核严格匹配，升级就坏
+# 本项目直接走 Chrome DevTools Protocol（CDP），任何 Chromium 内核浏览器都能用。

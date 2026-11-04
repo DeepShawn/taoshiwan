@@ -1,0 +1,737 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>湖北省信息技术作业网</title>
+<meta name="Keywords" content="作业,作业网,作业平台,信息技术,信息技术作业,高中课改,网上作业,淘师湾作业平台,淘师网,淘师湾,51淘师,51taoshi,homework" />
+<meta name="Description" content="淘师湾是面向全国中小学教师、学生和家长的，以网络互动学习和信息服务为主要业务的网络社区开放平台，包括为教师专业发展服务的网络研训平台，为中小学学生课外学习服务的学习平台，成为数字校园重要组成部分的家校信息交流平台。"/>
+<meta name="application-name" content="淘师湾" />
+<meta name="msapplication-tooltip" content="淘师湾" />
+<link rel="Bookmark" type="image/x-icon" href="/statics/favicon.ico"/>  
+<link rel="shortcut icon" type="image/x-icon" href="/statics/favicon.ico" />
+<link type="text/css" href="../../statics/commons/css/style.css" rel="stylesheet">
+<link type="text/css" href="../../statics/commons/css/main.css" rel="stylesheet">
+<script type="text/javascript" src="../../statics/commons/js/jquery-1.12.4.min.js"></script> 
+<script type="text/javascript" src="../../statics/commons/js/layer/layer.js"></script>
+<script type="text/javascript" src="../../statics/commons/js/cont.main.js"></script>
+<script type="text/javascript" src="../../statics/commons/js/md5.js"></script>
+<style>
+a.text-normal:hover{ color: #006ee9;}
+.sircle{ display: inline-block; width: 8px; height: 8px; border: 2px solid #E74518; border-radius: 50%;}
+</style>
+</head>
+
+<body>
+<div class="whiteBg">
+  <div class="container">
+    <div class=" clearfix logoBox">
+      <div class=" fl"><a href="http://infotech.51taoshi.com"><img src="../../statics/commons/images/logo.png"></a></div>
+      <div class="fr"><!-- <img src="../../statics/commons/images/tel.png" class="mr15"> -->
+      <span id="showUser"><a onclick="needlogin()" class="mr5 text-primary ft18">登录</a>
+      <span class="mr5">|</span><a onclick="synKey()" class="text-primary ft18">同步</a></span>
+      </div>
+    </div>
+     </div>
+</div>
+    <!--nav-->
+    <div class="navBox navIndex-box" >
+      <div class="container">
+        <ul class="nav navIndex">
+          <li class="active"><a href="../../hw/fore/index.do">首页</a></li>
+                    <li > <a href="../../hw/fore/listNews.do">通知公告</a> </li>
+          
+        </ul>
+      </div>
+    </div>
+    <!--nav-->
+   <!--banner--> 
+      <div class="bannerBox">
+   <ul class="bannerImg">
+    <li style="background:url(https://infotech.51taoshi.com/upload/image/20240412172447.png) no-repeat center"><a href="http://www.51taoshi.cn/abroad.html" 
+    target="_blank"></a></li>
+    <li style="background:url(https://infotech.51taoshi.com/upload/image/201511192230902.png) no-repeat center"><a href="javascript:gotoHomework()" 
+    ></a></li>
+   </ul>
+   <ul class="tip">
+   </ul>
+    <div class="radioBox">      
+          <div class="radioBody">
+          	<div class="clearfix  p15">
+            	<div class="mt5">
+          		  <span class="fl ft18 text-mude">通知公告</span>
+          		  <span class="fr  text-mude mt5"><a class="text-gray" href="listNews.do">更多&gt;&gt;</a></span>
+          		</div>
+          	</div>
+          	<div class="line_1"></div>
+          	<div class="p15">
+          		<ul>
+                  <!--  <li class="mb10 ft16"><span class="sircle mr5"></span><a class="text-normal">关于举办湖北优质英语课通知关于举办湖北优质英语课通知</a></li>
+          			<li class="mb10 ft16"><span class="sircle mr5"></span><a class="text-normal">举办湖北优质英语课通知</a></li>-->
+             	   <li class="mb10 ft16"><span class="sircle mr5"></span><a class="text-normal" href="viewNews.do?nid=180502141037291001" target="_blank"> 关于作业网上课时间修改的说明</a></li>    
+                  <!--  <li class="mb10 ft16"><span class="sircle mr5"></span><a class="text-normal">关于举办湖北优质英语课通知关于举办湖北优质英语课通知</a></li>
+          			<li class="mb10 ft16"><span class="sircle mr5"></span><a class="text-normal">举办湖北优质英语课通知</a></li>-->
+             	   <li class="mb10 ft16"><span class="sircle mr5"></span><a class="text-normal" href="viewNews.do?nid=171219145144555002" target="_blank"> 关于作业网服务器升级的通知</a></li>    
+                  <!--  <li class="mb10 ft16"><span class="sircle mr5"></span><a class="text-normal">关于举办湖北优质英语课通知关于举办湖北优质英语课通知</a></li>
+          			<li class="mb10 ft16"><span class="sircle mr5"></span><a class="text-normal">举办湖北优质英语课通知</a></li>-->
+             	   <li class="mb10 ft16"><span class="sircle mr5"></span><a class="text-normal" href="viewNews.do?nid=171010114817582001" target="_blank"> 关于无法“认定学分”和“同步学号”</a></li>    
+                  <!--  <li class="mb10 ft16"><span class="sircle mr5"></span><a class="text-normal">关于举办湖北优质英语课通知关于举办湖北优质英语课通知</a></li>
+          			<li class="mb10 ft16"><span class="sircle mr5"></span><a class="text-normal">举办湖北优质英语课通知</a></li>-->
+             	   <li class="mb10 ft16"><span class="sircle mr5"></span><a class="text-normal" href="viewNews.do?nid=170907212409272002" target="_blank"> 新版作业平台上线公告</a></li>    
+                  <!--  <li class="mb10 ft16"><span class="sircle mr5"></span><a class="text-normal">关于举办湖北优质英语课通知关于举办湖北优质英语课通知</a></li>
+          			<li class="mb10 ft16"><span class="sircle mr5"></span><a class="text-normal">举办湖北优质英语课通知</a></li>-->
+             	   <li class="mb10 ft16"><span class="sircle mr5"></span><a class="text-normal" href="viewNews.do?nid=170907165237217004" target="_blank"> 新版作业网操作手册</a></li>    
+                  <!--  <li class="mb10 ft16"><span class="sircle mr5"></span><a class="text-normal">关于举办湖北优质英语课通知关于举办湖北优质英语课通知</a></li>
+          			<li class="mb10 ft16"><span class="sircle mr5"></span><a class="text-normal">举办湖北优质英语课通知</a></li>-->
+             	   <li class="mb10 ft16"><span class="sircle mr5"></span><a class="text-normal" href="http://www.51taoshi.com/ucenter/pub/diaryShow.action?did=140409095129891043" target="_blank"> 湖北首创：信息技术作业在线完成</a></li>    
+          			
+          		</ul>
+          	</div>
+          </div>
+       
+      
+    </div>
+  </div>
+  <!--banner-->
+  
+<div class="whiteBg">
+   <div class="container">
+      <div class="dataBox mb30">
+         <div class="dataBody">
+           <img src="../../statics/commons/images/school.png">  
+           <div class=" hidden">
+             <div class="data"><div class="num fl">816</div> <div class="plus fl">+</div></div>
+             <div class="name">学校</div>
+           </div>         
+         </div>
+         <div class="dataLine"></div>
+         
+         <div class="dataBody">
+           <img src="../../statics/commons/images/banji.png">  
+           <div class=" hidden">
+             <div class="data"><div class="num fl">22109</div> <div class="plus fl">+</div></div>
+             <div class="name">班级</div>
+           </div>         
+         </div>
+         <div class="dataLine"></div>
+         
+         <div class="dataBody">
+           <img src="../../statics/commons/images/stu.png">  
+           <div class=" hidden">
+             <div class="data"><div class="num fl">935283</div> <div class="plus fl">+</div></div>
+             <div class="name">学生</div>
+           </div>         
+         </div>
+         <div class="dataLine"></div>
+         
+         <div class="dataBody">
+           <img src="../../statics/commons/images/zuoye.png">  
+           <div class=" hidden">
+             <div class="data"><div class="num fl">51720853</div> <div class="plus fl">+</div></div>
+             <div class="name">完成作业</div>
+           </div>         
+         </div>
+      </div>
+      <div class="text-center mb30">
+         <a onclick="gotoHomework()"><img src="../../statics/commons/images/stuBtn.png"></a>
+         <a onclick="gotoHomework()"><img src="../../statics/commons/images/tchBtn.png"></a>
+      </div>
+         <ul class="wailBox">
+          <li><a href="http://train.51taoshi.com/teacher/fore/index.action" target="_blank"><img src="../../statics/commons/images/train.png"></a></li>
+           <li><a href="http://course.51taoshi.com/train/fore/curriculum.do" target="_blank"><img src="../../statics/commons/images/tms.png"></a></li>
+           <li><a href="http://course.51taoshi.com/train/fore/resources.do" target="_blank"><img src="../../statics/commons/images/source.png"></a></li>
+           <li style="margin-right:0px;"><a href="http://www.51taoshi.com" target="_blank"><img src="../../statics/commons/images/store.png"></a></li>
+         </ul>
+     
+   </div>
+</div>
+ 
+ <div class="modalBox" id="loginModal" style="display:none;">
+     <div class="modalTitle"><span class="fl">登录作业网</span><a class="close fr" onclick="closeLogin()">X</a></div>
+    <form id="loginForm" method="POST">
+     <div class="modalContent"> 
+       <input type="text" name="user" id="login_username" class=" form-control mb15" style="width:100%;" placeholder="学生/教师用户名/编号/邮箱/手机号">
+       <input type="password" id="login_password" class=" form-control mb15" style="width:100%;" placeholder="密码">
+       <input type="hidden" id="pwd" name="pwd">
+       <a class="btn btn-primary btn-block" onclick="login()">登&nbsp;录</a>
+       <div class="clearfix mt15">
+          <div class="fl"><a onclick="location.href='https://ucenter.51taoshi.com/forgetPassword.do'">忘记密码？(仅教师)</a></div>
+         <div class="fr"><a onclick="location.href='https://ucenter.51taoshi.com/register.do'">注册用户(仅教师)</a></div>
+       </div>
+     </div>
+     </form>
+   </div>  
+   <div id="adviseframe" style="display:none;">淘师湾作业网于2024年12月31日（星期二）9:00 - 24:00 进行服务器维护升级，请老师和同学们在此时间避开登录作业网，给各位带来的不便敬请谅解！</div>  
+
+<meta charset="utf-8">
+
+
+
+
+  
+<div class="footer">
+  <div class="container">
+   <div class="footBox">
+    <div class="footBody" style="width:150px;">
+      <h4>关于我们</h4>
+      <ul>
+            	<li><a href="http://www.51taoshi.com/viewinformpwb.action?pid=201111281152270099&amp;tab=2" target="_blank">广告合作</a></li>
+                <li><a href="http://www.51taoshi.com/viewinformpwb.action?pid=201111281153100620&amp;tab=3" target="_blank">加入我们</a></li>
+                <li><a href="http://www.51taoshi.com/link.html" target="_blank">友情链接</a></li>
+                <li><a href="http://www.51taoshi.com/viewinformpwb.action?pid=201111281154080560&amp;tab=5" target="_blank">联系我们</a></li>
+                <li><a href="http://www.51taoshi.com/viewinformpwb.action?pid=201111281154420631&amp;tab=6" target="_blank">版权声明</a></li>
+            </ul>
+    </div>
+    <div class="footBody" style="width:280px;">
+      <h4>合作机构</h4>
+      <ul>
+				<li>湖北省教育信息化发展中心</li>
+				<li>湖北省电化教育馆</li>
+				<li>湖北省教育科学研究院</li>
+				<li>湖北省中小学教师继续教育中心</li>
+				<li>湖北省中小学校长协会</li>
+				<li>北京师范大学出版集团</li>
+				<li>基础教育信息技术服务湖北省协同创新中心</li>
+
+            </ul>
+    </div>
+    <div class="footBody">
+      <h4>友情链接</h4>
+      <ul>
+              <li><a href="http://www.hbe.gov.cn/" target="_blank"> 湖北省教育厅 </a></li>
+			  <li><a href="http://www.e21.cn/" target="_blank"> 湖北省教育信息网 </a></li>
+			  <li><a href="http://www.jiaoyan.cn/" target="_blank">湖北省教育科学研究院</a></li>
+			  <li><a href="http://www.hbea.edu.cn/" target="_blank">湖北省教育考试院</a></li>
+			  <li><a href="http://www.jb1000.com/" target="_blank">世纪金榜教学资源网</a></li>
+			  <li><a href="http://www.zxxk.com" target="_blank">学科网 </a></li>
+            </ul>
+    </div>
+    <div class="footBody" style="width:320px;margin-right:0px;">
+      <h4>联系我们</h4>
+      <div style="padding:0px 0 20px 0;"><span style="font-size:24px; color:#fff;">177072461</span> <span class="headtit12">(QQ群，仅限信息技术老师)</span></div>
+      <div class="wxgz">
+            	<div class=" mr10 fl">
+                	<img src="../../statics/commons/images/wxh.jpg" width="64" height="64">
+                </div>
+                <div class=" fl">
+                	<div class="mb10">扫一扫  关注微信公众号</div>
+                    <div>微信ID：taoshiwan</div>
+                </div>
+                <div class="clearfix"></div>
+              
+            </div>
+    </div>
+   </div>
+   
+  </div>
+  <div class="footInfo">
+      增值电信业务经营许可证：鄂B2-20130066  互联网出版许可证 新出网证:(鄂)字 1号   备案/许可证编号：鄂ICP备11013743号
+     <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?aa9262c3b4b7f88fe21a959df04936dc";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+   </div>
+</div>
+
+<form id="form1" name="form1" method="post">
+<div id="tbxh" class="modalBox w400" style="display:none;">
+     <div class="modalTitle"><span class="fl">与e21同步信息 <span class="text-red">*仅限湖北省信息技术作业学生</span></span><a class="close fr" onclick="closeTB()">X</a></div>
+     <div class="modalContent" style="padding-left:0;">
+     <div class="form-hz">
+        <div class="formGroup">
+          <div class="labelBox fl"> 入学年份：</div>
+          <div class="hidden">
+            <select name="field03" id="field03" class="form-control">
+            
+          </select>
+          </div>
+        </div>
+        <div class="formGroup">
+          <div class="labelBox fl"> 姓名：</div>
+          <div class="hidden"><input id="field01" name="field01" type="text" class="form-control"></div>
+        </div>
+        <div class="formGroup">
+          <div class="labelBox fl"> 学生编号：</div>
+          <div class="hidden"><input id="field02" name="field02" type="text" class="form-control"> </div>
+        </div>
+      </div>
+     <input type="hidden" name="rid" value="1">
+      <div class="modalBtn text-center mt30">
+        <a class="btn btn-primary  " onclick="postSynchronized1()">同步</a>
+      </div>
+     </div>
+       <img src="../../statics/commons/images/e21.png">
+   </div>
+   </form>
+   <form id="form2" name="form2" method="post">
+<div id="tbbh" class="modalBox w400" style="display:none;">
+     <div class="modalTitle"><span class="fl">与e21同步信息 <span class="text-red">*仅限湖北省高中教师</span></span><a class="close fr" onclick="closeTB()">X</a></div>
+     <div class="modalContent" style="padding-left:0;">
+     <div class="form-hz">
+        <div class="formGroup">
+          <div class="labelBox fl"> 姓名：</div>
+          <div class="hidden"><input id="field21" name="field01" type="text" class="form-control"></div>
+        </div>
+        <div class="formGroup">
+          <div class="labelBox fl"> 教师编号：</div>
+          <div class="hidden"><input id="field22" name="field02" type="text" class="form-control"> </div>
+        </div>
+      </div>
+     <input type="hidden" name="rid" value="2">
+      <div class="modalBtn text-center mt30">
+        <a class="btn btn-primary  " onclick="postSynchronized2()">同步</a>
+      </div>
+     </div>
+        <img src="../../statics/commons/images/e21.png">
+   </div>
+   </form>
+</body>
+<script type="text/javascript">
+	jQuery(document).ready(function(){
+		loadUser();
+		showTc();
+		//loadAdvise();
+	});
+	
+	
+	function loadAdvise(){
+		layer.open({
+			  type: 1,
+			  title: false,
+			  closeBtn: 0, //不显示关闭按钮
+			  shade: [0],
+			  area: ['340px', '215px'],
+			  offset: 'rb', //右下角弹出
+			  time: 20000, //2秒后自动关闭
+			  anim: 2,
+			  content: $("#adviseframe") //iframe的url，no代表不显示滚动条
+			 
+			});   
+	}
+	
+	function getParameterOut(){
+		var urlParameters = location.search;
+	    //声明并初始化接收请求参数的对象
+	    var requestParameters = new Object();
+	    //如果该求青中有请求的参数，则获取请求的参数，否则打印提示此请求没有请求的参数
+	    if (urlParameters.indexOf('?') != -1)
+	    {
+	        //获取请求参数的字符串
+	        var parameters = decodeURI(urlParameters.substr(1));
+	        //将请求的参数以&分割中字符串数组
+	        var parameterArray = parameters.split('&');
+	        //循环遍历，将请求的参数封装到请求参数的对象之中
+	        for (var i = 0; i < parameterArray.length; i++) {
+	            if(parameterArray[i].split('=')[0] == 'out'){
+	            	return 1;
+	            }
+	        }
+	        
+	    }
+	    return "";
+	}
+	
+	var uid = "";
+	var rid = "";
+	function loadUser(){
+		$.ajax({
+			url:'../../users/login/getUser.do',
+			type:'post',
+			dataType:'json',
+			cache:false,
+			success:function(result){
+				if(result != null || result != 'null'){
+					var rec_id = result.rec_id;
+					if(rec_id != null || rec_id != '' || rec_id != 'null'){
+						uid = rec_id;
+					}
+					var role_id = result.role_id;
+					if("1"== role_id || "2" == role_id || "10" == role_id){
+						rid = role_id;	
+					}
+					var ucall = result.field01;
+					if(ucall == null || ucall == "null" || ucall == ""){
+						ucall = ucall.field02;
+					}
+					if(ucall == null || ucall == "null" || ucall == ""){
+						ucall = ucall.field11;
+					}
+					if(uid != ""  && rid != ""){
+						var htmlStr = "<a href='#' class='mr10 text-primary ft18'>"
+							+ucall+"</a><a onclick='Redirect_logout()' class='text-primary ft18' title='安全退出'>[退出]</a>";
+						jQuery("#showUser").html(htmlStr);
+					}
+				}
+				
+			}
+		});
+		
+	}
+	function Redirect_logout(){ 
+	  
+	   window.location.href = "../../hw/fore/index.do?out=1";
+     }
+    
+	function gotoHomework(){
+		if(uid != "" && rid != ""){
+			if("1" == rid){
+				location.href = '../../hw/stu/myHomework.do';
+			}
+			if("2" == rid){
+				location.href = '../../hw/course/mine.do';
+			}
+			if("10" == rid){
+				location.href = '../../hw/qst/check.do';
+			}
+		}else{
+			needlogin();
+		}
+	}
+	
+	var redirecturl	;
+	var indexLayer ;
+	function needlogin(){	
+		indexLayer = layer.open({
+				  type: 1,
+				  title: false,
+				  closeBtn: 0,
+				  //area: '516px',
+				  skin: 'layui-layer-nobg', //没有背景色
+				  shadeClose: false,
+				  content: $('#loginModal')
+				});  
+	}
+	function closeLogin(){
+		layer.close(indexLayer);
+	}
+	function login()
+	{  
+	  
+	   var now=new Date(); 
+	   var r = now.getSeconds();
+	   if(jQuery("#login_username").val()==null||jQuery("#login_username").val()==''){
+      	    jQuery('#login_username').focus();
+      	    layer.msg("请填写用户名",function(){});
+      	    return false;
+	   }else if(jQuery("#login_password").val().length>25){
+     	    jQuery('#login_username').focus();
+     	    layer.msg("输入的用户名超过长度",function(){});
+     	    return false;
+       }else if(jQuery("#login_password").val()==null||jQuery("#login_password").val()==''){
+		    jQuery('#login_password').focus();
+		    layer.msg("请填写密码",function(){});
+		    return false;
+       }else if(jQuery("#login_password").val().length>30){
+   	    	jQuery('#login_password').focus();
+   	    	layer.msg("输入的密码超过长度",function(){});
+   	    	return false;
+       }
+	   var index = layer.load();
+	   var tmemo =jQuery("#login_username").val();
+	   //tmemo=escape(escape(tmemo));
+	   var tmemo2=jQuery("#login_password").val();
+	   //jQuery.cookie('tmemo2',tmemo2,{path: cookiePath,domain: localDomain});
+	   tmemo2=hex_md5(tmemo2);
+	   $("#pwd").val(tmemo2);
+	   //tmemo2=escape(escape(tmemo2));
+	   jQuery.ajax({
+		   type:"POST",
+		   data:$('#loginForm').serialize(),
+		   cache:"false",
+		   async:false,
+		   url:"../../users/login/loginAjax.do",
+	       success:function(data)
+			{
+				if(data=="nouser"){
+					layer.close(index);
+					layer.msg("用户名或密码错误",function(){});
+					jQuery("#login_password").val('');
+					jQuery("#login_password").focus();
+					return true;
+				}else if(data=="pwderror"){
+					layer.close(index);
+					layer.msg("密码错误",function(){});
+		        	jQuery("#login_password").val('');
+					jQuery("#login_password").focus();
+		        	return true;
+		        }else if(data=="lockuser"){
+					layer.close(index);
+					layer.msg("用户被置为无效",function(){});
+		        	jQuery("#login_password").val('');
+					jQuery("#login_password").focus();
+		        	return true;
+		        }else if(data=='1'){
+		        	layer.msg("登录成功");
+		        	redirecturl = '../../hw/stu/myHomework.do';
+		        	setTimeout("loginsucc()",500); 
+		        }else if(data=='2'){
+		        	layer.msg("登录成功");
+		        	redirecturl = '../../hw/course/mine.do';
+		        	setTimeout("loginsucc()",500); 
+		        }else if(data=='10'){
+		        	layer.msg("登录成功");
+		        	redirecturl = '../../hw/qst/check.do';
+		        	setTimeout("loginsucc()",500); 
+		        }else if(data=='terror'){
+		        	layer.close(index);
+		        	closeLogin();
+					layer.confirm("作业网暂不对无编号或非信息技术老师开放",{
+						  btn: ['同步编号','取消同步'] //按钮
+					},function(){synchronizedKeyNo2();});
+		        	jQuery("#login_password").val('');
+					jQuery("#login_password").focus();
+		        	return true;
+		        }else if(data=='serror'){
+		        	layer.close(index);
+		        	closeLogin();
+		        	layer.confirm("作业网需要您绑定学号",{
+						  btn: ['学号绑定','取消同步'] //按钮
+					},function(){synchronizedKeyNo1();});
+		        	jQuery("#login_password").val('');
+					jQuery("#login_password").focus();
+		        	return true;
+		        }else{
+		        	layer.close(index);
+					layer.msg("作业网暂不对非信息技术老师或非学生开放",function(){});
+		        	jQuery("#login_password").val('');
+					jQuery("#login_password").focus();
+		        	return true;
+		        }
+			}
+	     }); 
+	}
+	
+	
+	function loginsucc(){
+        if(redirecturl!=null && redirecturl!=''){
+        	 window.location.href = redirecturl; 
+        }else{
+        	window.location.reload(); 
+        }    
+	}
+	
+	
+	
+	function addfavorite()
+	{
+		var url = 'http://www.51taoshi.com';
+	    var title = '淘师湾';
+	    var ua = navigator.userAgent.toLowerCase();
+	    if (ua.indexOf("360se") > -1) {
+	        alert("由于360浏览器功能限制，请按 Ctrl+D 手动收藏！");
+	    }
+	    else if (ua.indexOf("msie 8") > -1) {
+	        window.external.AddToFavoritesBar(url, title); //IE8
+	    }
+	    else if (document.all) {
+			try{
+			   window.external.addFavorite(url, title);
+			}catch(e){
+			   alert('您的浏览器不支持,请按 Ctrl+D 手动收藏!');
+			}
+	    }
+	    else if (window.sidebar) {
+	        window.sidebar.addPanel(title, url, "");
+	    }
+	    else {
+	    	alert('您的浏览器不支持,请按 Ctrl+D 手动收藏!');
+	    }
+	}
+	
+	//自动执行读取弹框状态
+	function showTc(){
+		var message = "";
+		;//t:正确，tt:提醒，ttt:错误，f:不显示
+		message = '';
+		showT_err(message);
+		
+		
+		
+		
+	}
+	
+	//提醒
+	function showT_att(mess){
+		if(mess==null||mess==''||mess=='null'){
+			mess = '';
+			return;
+		}
+		layer.msg(mess, {icon: 0});
+	}
+	
+	
+	//错误
+	function showT_err(mess){
+		if(mess==null||mess==''||mess=='null'){
+			mess = '';
+			return;
+		}
+		layer.msg(mess, {icon: 2});
+	}
+	
+	
+	//正确
+	function showTs(h1){
+		if(h1==null||h1==''||h1=='null'){
+			h1 = '';
+			return;
+		}
+		layer.msg(h1, {icon: 1});
+	}
+	
+	jQuery(function() {  
+		jQuery("#login_username").keyup(function(event){  
+          if(event.keyCode == 13){  
+            login();  
+          }  
+        });  
+    });
+	jQuery(function() {  
+		jQuery("#login_password").keyup(function(event){  
+          if(event.keyCode == 13){  
+            login();  
+          }  
+        });  
+    });
+function synKey(){
+	if(uid != "" && rid != ""){
+		layer.confirm("您是想同步教师编号，还是学生学号？",{
+			  btn: ['教师编号','学生学号'] //按钮
+		}, function(){
+			synchronizedKeyNo2();
+		},function(){
+			synchronizedKeyNo1();
+		});
+	}else{
+		needlogin();
+	}
+	
+}
+var index;
+function closeTB(){
+	layer.close(index);
+}
+function synchronizedKeyNo1(){
+	//matchKeyNo
+	index = layer.open({
+		  type: 1,
+		  title: false,
+		  shadeClose: true,
+		  closeBtn :false,
+		  scrollbar: false,
+		  shade: 0.8,
+		  area: ['400px', '360px'],
+		  content: $("#tbxh") //iframe的url
+		}); 
+}
+function synchronizedKeyNo2(){
+	//matchKeyNo
+	index = layer.open({
+		  type: 1,
+		  title: false,
+		  shadeClose: true,
+		  closeBtn :false,
+		  scrollbar: false,
+		  shade: 0.8,
+		  area: ['405px', '310px'],
+		  content: $("#tbbh") //iframe的url
+		}); 
+}
+function postSynchronized1(){
+	var field01 = $("#field01").val();
+	var field02 = $("#field02").val();
+	var field03 = $("#field03").val();
+	if(field01 == ""){
+		layer.msg("请输入你的真实姓名",function(){});
+		return false;
+	}
+	if(field02 == ""){
+		layer.msg("请输入你的十位省编学号",function(){});
+		return false;
+	}
+	if(field01.length > 30){
+		layer.msg("请输入你的真实姓名",function(){});
+		return false;
+	}
+	field02 =  field02.replace(/^\s+|\s+$/g,"");
+	if(field02.length != 10){
+		layer.msg("请输入你的十位省编学号",function(){});
+		return false;
+	}
+	//var para = "field01="+field01+"&field02="+field02+"&field03="+field03;
+	var index = layer.load(0);
+	$.ajax({
+		url : '../../hw/stu/postMatchKeyNo.do',
+		data: $("#form1").serialize(),
+		type: 'POST',
+		cache:false,
+		dataType:'html',
+		success:function(data){
+			if(data != ""){
+				if(data == "ok"){
+					layer.msg("同步成功");
+					redirecturl = '../../hw/stu/myHomework.do';
+		        	setTimeout("loginsucc()",500); 
+				}else{
+					layer.msg(data, function(){});
+				}
+			}else{
+				layer.msg("同步不成功",function(){});
+			}
+			layer.close(index);
+		}
+		
+	});
+}
+function postSynchronized2(){
+	var field01 = $("#field21").val();
+	var field02 = $("#field22").val();
+	//var field03 = $("#field03").val();
+	if(field01 == ""){
+		layer.msg("请输入你的真实姓名",function(){});
+		return false;
+	}
+	if(field02 == ""){
+		layer.msg("请输入你的教师编号",function(){});
+		return false;
+	}
+	if(field01.length > 30){
+		layer.msg("请输入你的真实姓名",function(){});
+		return false;
+	}
+	field02 =  field02.replace(/^\s+|\s+$/g,"");
+	if(field02.length > 30){
+		layer.msg("请输入你的教师编号",function(){});
+		return false;
+	}
+	//var para = "field01="+field01+"&field02="+field02;
+	var index = layer.load(0);
+	$.ajax({
+		url : '../../hw/stu/postMatchKeyNo.do',
+		data: $("#form2").serialize(),
+		type: 'POST',
+		cache:false,
+		dataType:'html',
+		success:function(data){
+			if(data != ""){
+				if(data == "ok"){
+					layer.msg("同步成功");
+					redirecturl = '../../hw/course/mine.do';
+		        	setTimeout("loginsucc()",500); 
+				}else{
+					layer.msg(data, function(){});
+				}
+			}else{
+				layer.msg("同步不成功",function(){});
+			}
+			layer.close(index);
+		}
+		
+	});
+}
+</script>   
+</html>
