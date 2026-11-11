@@ -12,7 +12,8 @@
   GET  /tsw.user.js                         userscript 本体（热加载）
 
 查询参数：
-  noleak=1   题目 JSON 不含答案字段（模拟“修补后”的页面，用于验证本地题库）
+  noleak=1   题目 JSON 不含答案字段（模拟“修补后”的页面，用于验证本地题库
+             与程序推演通道：q13/q14 是带 VB 代码的题，只能靠推演算出来）
   click=1    选项用可点击 li 渲染（无 input，验证点击式作答）
 
 启动：
@@ -63,6 +64,18 @@ QUESTIONS = [
          options=[], answer="CPU"),
     dict(id="q12", type="填空题", stem="在网络中，把域名转换为IP地址的服务称为＿＿＿＿。",
          options=[], answer="DNS"),
+    # 以下两题模拟“程序阅读题”：题干里带 VB 代码，答案只能靠推演得出
+    # （noleak=1 时页面不下发答案，用来验证 tsw_vb.js 的程序推演通道）
+    dict(id="q13", type="单选题",
+         stem="阅读下面的程序，该程序运行后，文本框 Text1 中显示的内容是（　）"
+              "Private Sub Command1_Click() Dim s As Integer s = 0 "
+              "For i = 1 To 3 s = s + i Next i Text1.Text = s End Sub",
+         options=[("A", "3"), ("B", "6"), ("C", "9"), ("D", "0")], answer="B"),
+    dict(id="q14", type="单选题",
+         stem="以下程序运行时，在文本框 Text1 中输入 6，输出的结果是（　）"
+              "Private Sub Command1_Click() Dim n As Integer n = Val(Text1.Text) "
+              "If n Mod 2 = 0 Then Print \"偶数\" Else Print \"奇数\" End If End Sub",
+         options=[("A", "6"), ("B", "偶数"), ("C", "奇数"), ("D", "0")], answer="B"),
 ]
 
 ANSWERS = {q["id"]: q["answer"] for q in QUESTIONS}

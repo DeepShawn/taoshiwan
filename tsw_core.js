@@ -15,7 +15,7 @@
 
   if (root.TSWCore && root.TSWCore.version) return;
 
-  var VERSION = '1.0.0';
+  var VERSION = '1.1.0';
   var LS_BANK = 'tsw_aa_bank_v1';
 
   /* ==========================================================
@@ -602,6 +602,20 @@
   /* ==========================================================
    * 6. 作答
    * ======================================================== */
+  /** 程序推演通道：题干里带 VB 代码时算出输出并匹配选项（需要 tsw_vb.js） */
+  function tryVb(q) {
+    var Vb = root.Vb;
+    if (!Vb || typeof Vb.solveVb !== 'function' || !q.options || !q.options.length) return null;
+    var opts = [];
+    for (var i = 0; i < q.options.length; i++) {
+      opts.push({ letter: q.options[i].key, text: q.options[i].text });
+    }
+    var r;
+    try { r = Vb.solveVb({ stem: q.stem, options: opts }); } catch (e) { return null; }
+    if (!r || !r.letters || !r.letters.length) return null;
+    return { ans: r.letters.join(''), src: 'vb', sim: 1, note: r.note || '' };
+  }
+
   function findAnswer(q) {
     var i;
     for (i = 0; i < CAND.length; i++) {
@@ -615,7 +629,7 @@
       var domAns = q.el.getAttribute('data-answer') || q.el.getAttribute('data-right');
       if (domAns) return { ans: normalizeAns(q, domAns), src: 'dom-attr', sim: 1 };
     }
-    return Bank.get(q.stem);
+    return Bank.get(q.stem) || tryVb(q);
   }
 
   function setValue(el, v) {
@@ -720,7 +734,7 @@
         q.el.insertBefore(tag, q.el.firstChild);
       }
       var el = q.el.querySelector('.tsw-aa-tag');
-      el.textContent = '答案 ' + hit.ans + ' · ' + ({ page: '页面数据', bank: '题库', 'dom-attr': '页面标记' }[hit.src] || hit.src);
+      el.textContent = '答案 ' + hit.ans + ' · ' + ({ page: '页面数据', bank: '题库', 'dom-attr': '页面标记', vb: '程序推演' }[hit.src] || hit.src);
     } catch (e) {}
   }
 

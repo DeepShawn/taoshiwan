@@ -21,9 +21,10 @@ import time
 HERE = os.path.dirname(os.path.abspath(__file__))
 CORE = os.path.join(HERE, "tsw_core.js")
 PANEL = os.path.join(HERE, "src", "panel.js")
+VB = os.path.join(HERE, "tsw_vb.js")
 OUT = os.path.join(HERE, "51taoshi-auto-answer.user.js")
 
-VERSION = "1.0.0"
+VERSION = "1.1.0"
 REPO = "DeepShawn/taoshiwan"
 RAW_BASE = "https://raw.githubusercontent.com/%s/main" % REPO
 
@@ -32,7 +33,7 @@ HEADER = """\
 // @name         淘师湾作业网 · 答案提取与自动答题
 // @namespace    https://infotech.51taoshi.com/
 // @version      {version}
-// @description  面向淘师湾/湖北省信息技术作业网作业页：抓取页面自身下发的试卷数据取出标准答案，建本地题库，一键填涂与交卷。
+// @description  面向淘师湾/湖北省信息技术作业网作业页：抓取页面自身下发的试卷数据取出标准答案，建本地题库，并用内置 VB 解释器推演程序阅读题，一键填涂与交卷。
 // @author       DeepShawn
 // @homepageURL  https://github.com/{repo}
 // @supportURL   https://github.com/{repo}/issues
@@ -51,7 +52,7 @@ HEADER = """\
 
 /* 构建信息：{stamp}
  * 本文件由 build.py 生成，请勿直接编辑。
- * 源码：tsw_core.js（引擎） + src/panel.js（界面）
+ * 源码：tsw_vb.js（程序推演） + tsw_core.js（引擎） + src/panel.js（界面）
  */
 """
 
@@ -69,6 +70,7 @@ def build():
 
     core = read(CORE)
     panel = read(PANEL)
+    vb = read(VB) if os.path.isfile(VB) else ""
 
     # 极简健全性检查：核心必须定义 TSWCore 且带 version
     if "root.TSWCore = TSWCore" not in core:
@@ -83,7 +85,7 @@ def build():
         stamp=time.strftime("%Y-%m-%d %H:%M:%S"),
     )
 
-    body = header + "\n" + core + "\n\n" + panel + "\n"
+    body = header + "\n" + vb + "\n" + core + "\n\n" + panel + "\n"
     return body
 
 
@@ -92,6 +94,8 @@ def sanity_check(text):
     problems = []
     if text.count("TSWCore") < 5:
         problems.append("TSWCore 引用次数异常")
+    if "root.Vb" not in text:
+        problems.append("程序推演模块 tsw_vb.js 未打包")
     if "@run-at       document-start" not in text:
         problems.append("缺少 @run-at document-start（抓不到早期请求）")
     if text.count("function (root)") < 2:

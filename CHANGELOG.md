@@ -1,5 +1,27 @@
 # 更新记录
 
+## v1.1.0 — 2026-11-12
+
+### 新增
+- **程序推演通道 `vb`**（`tsw_vb.js`）：题干里带 VB 代码的程序阅读题，直接把代码推演执行，
+  用输出匹配选项。页面不下发答案、题库里也没有这道题时，仍能算出来。
+  - VB6 子集：`Sub/End Sub`、`Dim`、`For…Next`(Step/Exit For)、`Do While/Until…Loop`、
+    `While…Wend`、`If/ElseIf/Else`、`Print`、`Text1.Text`/`Val(Text1.Text)`、`&`、`Mod`、`\`、
+    `And/Or/Not`、`Mid/Len/Left/Right/UCase/LCase/Trim/Str/Val/Chr/Asc` 等
+  - 页面把题干压成一行时自动按 VB 关键字重新断行；不认识的语法直接放弃，不猜答案
+  - 题库优先：`bank` 命中时不走推演
+- 靶场新增 2 道 VB 程序题（q13/q14）与 `tests/test_vb_channel.py` 三个端到端场景
+
+### 变更
+- `tsw_core.js` 版本 1.1.0：`findAnswer()` 在页面/标记/题库都未命中时调用 `tryVb()`
+- `build.py` 打包顺序：`tsw_vb.js` → `tsw_core.js` → `src/panel.js`
+- Python 版 `read_core()` 同时注入同目录的 `tsw_vb.js`（缺失时自动降级，不影响原有三条通道）
+
+### 验证
+- 场景1 接口下发答案：14/14 → 70/70（回归原有 `page` 通道）
+- 场景2 `noleak=1`：只答出 2 道程序题，来源均为 `vb`，服务端判分 10/70
+- 场景3 题库 + 推演：14/14 → 70/70（题库优先，推演兜底）
+
 ## v1.0.0 — 2026-11-04
 
 首个可发布版本。

@@ -42,13 +42,14 @@
 字段含义由站内静态脚本 `/statics/tiku/questionMain.js`（无需登录即可下载）直接暴露：
 `field01` 题干/选项文本、`field03` 选项字母、`field04` 标准答案、`field05` 题号。
 
-于是有三条互相独立的取答案通道，任意一条命中即可作答：
+于是有四条互相独立的取答案通道，任意一条命中即可作答（题库优先，推演兜底）：
 
-| 通道 | 抓什么 | 在哪生效 |
+| 通道 | 拿什么 | 在哪生效 |
 | --- | --- | --- |
 | `page` | 页面接口返回的试卷 JSON | 答题页 |
 | `result-dom` | 结果页「正确答案：X」/ 高亮正确项 | 作业结果、解析页 |
 | `bank` | 本地题库（题干指纹 + 模糊匹配） | 无答案下发的加固页、同题库的另一份作业 |
+| `vb` | 题干里的 VB 代码**直接推演跑一遍**，用输出匹配选项 | 程序阅读题；页面不下发答案时仍能算出来 |
 
 脚本**只读当前页面已经拿到的数据**，不爆破账号、不改服务端、不猜测他人答案。
 详细证据链见 [`docs/PRINCIPLE.md`](docs/PRINCIPLE.md)。
@@ -277,6 +278,25 @@ python tsw_answer.py bank merge --other b.json
 
 ---
 
+## 程序推演通道（v1.1.0）
+
+「程序阅读题」的题干直接印着代码，答案是代码跑出来的结果。`tsw_vb.js` 是一个 VB6 子集解释器，
+把这行代码真的执行一遍，再把输出（`Print` 的内容、`Text1.Text` 的赋值）和四个选项比对：
+
+```text
+阅读下面的程序，该程序运行后，文本框 Text1 中显示的内容是（　）
+Private Sub Command1_Click() Dim s As Integer s = 0
+For i = 1 To 3 s = s + i Next i Text1.Text = s End Sub
+    A. 3   B. 6   C. 9   D. 0        → 推演 trace=6 → 选 B
+```
+
+- 支持：`Sub/End Sub`、`Dim`、`For…Next`（含 `Step`、`Exit For`）、`Do While/Until…Loop`、
+  `While…Wend`、`If/ElseIf/Else`、`Print`、`Text1.Text`（含 `Val(Text1.Text)`、题干里「输入 "abc"」的预设值）、
+  `&` 连接、`Mod`、`\` 整除、`And/Or/Not`、`Mid/Len/Left/Right/UCase/LCase/Trim/Str/Val/Chr/Asc` 等常用函数
+- 页面取到题干时空白被压成一行，模块会按 VB 关键字重新断行（`Private Sub` / `Dim` / `For` / `Next` / `If` / `Print` …）
+- 不认识的语法直接放弃（返回「无答案」），**绝不猜**：只认解释器真跑出来的输出
+- 题库里已有这道题时依旧走 `bank`，推演只在没有答案时兜底
+
 ## 验证结果
 
 服务端独立判分（`saveAnswers.do` 判分，不读前端标记），靶场复刻真实站点的 URL 与 DOM 类名：
@@ -289,6 +309,9 @@ python tsw_answer.py bank merge --other b.json
 | Python `run --url` | 接口带 `answer` | `page` | 12/12 → **60/60** |
 | Python `run --reuse` | 接口不带答案 | `bank` | 12/12 → **60/60** |
 | 油猴 + Python | 无 `<input>` 点击式选项 | `page` | 12/12 → **60/60** |
+| 油猴 v1.1.0 | 靶场新增 2 道 VB 程序题，`noleak=1`（不下发答案） | `vb` | 2/2 → **10/70**（只有程序题可算） |
+| 油猴 v1.1.0 | 题库 + 推演混合，`noleak=1` | `bank`+`vb` | 14/14 → **70/70** |
+| Python v1.1.0 | `run --url` 打 `noleak=1` 页面 | `vb` | 第 13、14 题命中 B/B |
 
 真实站点冒烟：在 `infotech.51taoshi.com` 注入油猴脚本，面板正常、零运行时报错。
 

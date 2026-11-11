@@ -42,7 +42,7 @@ import time
 import urllib.error
 import urllib.request
 
-VERSION = "1.0.0"
+VERSION = "1.1.0"
 DEFAULT_PORT = 9222
 HERE = os.path.dirname(os.path.abspath(__file__))
 
@@ -499,8 +499,16 @@ def locate_core(explicit=None):
 
 
 def read_core(path):
-    with open(path, "r", encoding="utf-8") as f:
-        return f.read()
+    """读取引擎源码；程序推演模块 tsw_vb.js 先于 tsw_core.js 注入（缺失则自动降级）。"""
+    parts = []
+    vb = os.path.join(os.path.dirname(os.path.abspath(path)), "tsw_vb.js")
+    for extra in (vb, path):
+        if extra and os.path.isfile(extra):
+            with open(extra, "r", encoding="utf-8") as f:
+                parts.append(f.read())
+    if not parts:
+        die("核心脚本为空: %s" % path)
+    return "\n;\n".join(parts)
 
 
 # ============================================================
@@ -698,6 +706,11 @@ def cmd_doctor(args):
     try:
         core = locate_core(args.core)
         out("  - %s (%d 字节)" % (core, os.path.getsize(core)))
+        vb = os.path.join(os.path.dirname(os.path.abspath(core)), "tsw_vb.js")
+        if os.path.isfile(vb):
+            out("  - %s (%d 字节)  程序推演已启用" % (vb, os.path.getsize(vb)))
+        else:
+            warn("同目录没有 tsw_vb.js：程序阅读题无法推演，其余功能不受影响。")
     except SystemExit:
         pass
     out("")
